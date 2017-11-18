@@ -1,14 +1,11 @@
-all:
-	jupyter nbconvert --execute ./project-2-p2-ak-ja-zh/state_of_the_union_analysis-p1.ipynb
-	jupyter nbconvert --execute ./project-2-p2-ak-ja-zh/state_of_the_union_analysis-p2.ipynb
-	jupyter nbconvert --execute ./project-2-p2-ak-ja-zh/state_of_the_union_analysis-p3.ipynb
-	jupyter nbconvert --execute ./project-2-p2-ak-ja-zh/state_of_the_union_analysis-p4.ipynb
-	jupyter nbconvert --execute ./project-2-p2-ak-ja-zh/state_of_the_union_analysis-p5.ipynb
-	jupyter nbconvert --execute ./project-2-p2-ak-ja-zh/main.ipynb
 
-
-env:	sunion.yml
-	conda env create -f sunion.yml
+.PHONY : env
+env :
+ conda env create -f environment.yml
+run : # run the notenook
+ rm -f results/*
+ jupyter nbconvert --ExecutePreprocessor.timeout=600 --to notebook --execute state_of_the_union_analysis*.ipynb
+ jupyter nbconvert --ExecutePreprocessor.timeout=600 --to notebook --execute main.ipynb
 
 clean :
 	rm -f *.yml
