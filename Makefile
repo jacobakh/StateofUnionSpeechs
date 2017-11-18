@@ -1,5 +1,5 @@
 .PHONY : env
-env :
+env :	sunion.yml
 	conda env create -f sunion.yml
 run : # run the notenook
 	jupyter nbconvert --ExecutePreprocessor.timeout=600 --to notebook --execute state_of_the_union_analysis*.ipynb
