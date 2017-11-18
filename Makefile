@@ -6,5 +6,4 @@ run : # run the notenook
  jupyter nbconvert --ExecutePreprocessor.timeout=600 --to notebook --execute state_of_the_union_analysis*.ipynb
  jupyter nbconvert --ExecutePreprocessor.timeout=600 --to notebook --execute main.ipynb
 
-
-	rm -f *.yml
+rm -f *.yml
